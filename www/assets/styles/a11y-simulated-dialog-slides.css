@@ -1,0 +1,22 @@
+.reveal small.baseline {
+  vertical-align: baseline;
+}
+
+.reveal small *.baseline {
+  vertical-align: baseline;
+}
+
+.reveal .inline-block {
+  display: inline-block;
+}
+
+.reveal .eighty-percent {
+  font-size: 80%;
+}
+
+.reveal .about-details {
+  vertical-align: top;
+  text-align: left;
+  margin-left: 32px;
+}
+
