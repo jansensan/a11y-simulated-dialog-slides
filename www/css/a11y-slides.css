@@ -1,9 +1,24 @@
+body {
+  background: #00161b;
+  background-color: #00161b;
+}
+
+code {
+  color: #fff8ad;
+}
+
 .crossmark {
   color: #cc0000;
   font-size: 64pt !important;
 }
+.regular-crossmark {
+  color: #cc0000;
+}
 
 .checkmark {
-  color: #00cc00;
+  color: #4fba46;
   font-size: 64pt !important;
+}
+.regular-checkmark {
+  color: #4fba46;
 }

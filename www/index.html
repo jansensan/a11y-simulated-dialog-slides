@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+  <meta charset="utf-8">
   <head>
     <title>A11Y - Simulated Dialogs</title>
     <link rel="stylesheet" href="css/reveal.css">
@@ -25,28 +26,30 @@
         <section>
           <section>
             <h2>Foreword</h2>
+          </section>
+          <section>
             <ul>
-            <li class="fragment">
-              Features presented here<br>
-              based on professional experience<br>
-              <small class="fragment">
-                (I am not an accessibility expert yet)
-              </small>
-            </li>
-            <li class="fragment">
-              There are many alternative ways<br>
-              to implement this functionality<br>
-              <small class="fragment">
-                (This is an opiniated presentation, not normative)
-              </small>
-            </li>
-            <li class="fragment">
-              Not an exhaustive presentation<br>
-              on what is accessibility<br>
-              <small class="fragment">
-                (But...)
-              </small>
-            </li>
+              <li>
+                Features presented here<br>
+                based on professional experience<br>
+                <small class="fragment">
+                  (I am not an accessibility expert yet)
+                </small>
+              </li>
+              <li class="fragment">
+                There are many alternative ways<br>
+                to implement this functionality<br>
+                <small class="fragment">
+                  (This is an opiniated presentation, not normative)
+                </small>
+              </li>
+              <li class="fragment">
+                Not an exhaustive presentation<br>
+                on what is accessibility<br>
+                <small class="fragment">
+                  (But...)
+                </small>
+              </li>
             </ul>
           </section>
           <section>
@@ -166,8 +169,11 @@
             <h3>Demo</h3>
           </section>
           <section>
-            <h3>Don't use <code>&lt;a&gt;</code></h3>
-            <p>The HTML &lt;a&gt; element is meant to create a hyperlink.</p>
+            <h3>
+              <small class="baseline">Code Gotcha:</small><br>
+              Don't use <code>&lt;a&gt;</code>
+            </h3>
+            <p>The HTML <code>&lt;a&gt;</code> element is meant to create a hyperlink.</p>
             <div class="fragment">
               <p>
                 Code like this breaks accessibility<br>
@@ -182,16 +188,127 @@
                 alt="HTML code misusing an A element as a button"
               >
             </div>
-            <p class="fragment">Use the &lt;button&gt; element instead.</p>
+            <p class="fragment">Use the <code>&lt;button&gt;</code> element instead.</p>
           </section>
         </section>
 
+        <!-- descriptive dialog title -->
         <section>
-          <h2>
-            <small class="baseline">Screen Reader Accessibility:</small><br>
-            Provide a descriptive<br>
-            dialog title
-          </h2>
+          <section>
+            <h2>
+              <small class="baseline">Screen Reader Accessibility:</small><br>
+              Provide a descriptive<br>
+              dialog title
+            </h2>
+          </section>
+          <section>
+            <h3>TODO</h3>
+            <p>
+              Use proper attributes to ensure<br>
+              modal element is titled and described.
+            </p>
+          </section>
+          <section>
+            <img
+              src="assets/images/mockup-with-modal.jpg"
+              alt="page layout with modal"
+              width="640"
+            >
+          </section>
+          <section>
+            <code>aria-labelledby</code>
+            <p class="fragment">
+              The attribute contains<br>
+              the element ID<br>
+              in which its label resides.
+            </p>
+            <p class="fragment checkmark">✔</p>
+          </section>
+          <section>
+            <code>aria-describedby</code>
+            <p class="fragment">
+              The attribute contains<br>
+              the element ID<br>
+              in which its description resides.
+            </p>
+            <p class="fragment checkmark">✔</p>
+          </section>
+          <section>
+            <img
+              src="assets/images/code-modal-descr.jpg"
+              alt="modal element descriptive title"
+              width="640"
+            >
+          </section>
+          <section>
+            <h3>Demo</h3>
+          </section>
+        </section>
+
+        <!-- proper semantics -->
+        <section>
+          <section>
+            <h2>
+              <small class="baseline">Screen Reader Accessibility:</small><br>
+              Ensure dialogs<br>
+              use proper structure
+            </h2>
+          </section>
+          <section>
+            <h3>TODO</h3>
+            <p>
+              Structure HTML content<br>
+              in a proper semantic manner.
+            </p>
+          </section>
+          <section>
+            <img
+              src="assets/images/mockup-with-modal.jpg"
+              alt="page layout with modal"
+              width="640"
+            >
+          </section>
+          <section>
+            <h3>Two possible structures</h3>
+            <ol>
+              <li class="fragment">
+                Follow layout structure to build HTML,<br>
+                change tabbing order with <code>tabindex</code> attributes.
+              </li>
+              <li class="fragment">
+                Structure HTML in a semantic manner,<br>
+                change elements positions with CSS.
+                <span class="fragment regular-checkmark">✔</span>
+              </li>
+            </ol>
+          </section>
+          <section>
+            <img
+              src="assets/images/code-modal-html.jpg"
+              alt="modal HTML code structure"
+              width="520"
+            >
+          </section>
+          <section>
+            <code>role="dialog"</code>
+            <blockquote class="fragment">
+              The <code>dialog</code> role is used to mark up a DHTML based application dialog or window that separates content or UI from the rest of the web application or page.
+            </blockquote>
+            <p class="fragment checkmark">✔</p>
+          </section>
+          <section>
+            <code>aria-hidden</code>
+            <p class="fragment">
+              The attribute indicates<br>
+              that the element is hidden.<br>
+              Screenreaders will not see this element
+            </p>
+            <p class="fragment">
+              Ensure to change this value<br>
+              to <code>aria-hidden="false"</code><br>
+              when displaying the modal.
+            </p>
+          </section>
         </section>
 
         <!-- move focus -->
@@ -207,20 +324,20 @@
           <section>
             <h3>TODO</h3>
             <p>
-              Use <code>element.focus()</code><br>
-              to set focus to modal<br>
-              when user action request modal display.
+              Use <code>HTMLElement.focus()</code><br>
+              to set focus to modal element<br>
+              when user action requests said modal.
             </p>
           </section>
           <section>
-            <code>element.focus()</code>
+            <code>HTMLElement.focus()</code>
             <blockquote class="fragment">
               The <code>HTMLElement.focus()</code> method sets focus on the specified element, if it can be focused.
             </blockquote>
             <p class="fragment checkmark">✔</p>
           </section>
           <section>
-            <h3>Use the <code>id</code> attribute</h3>
+            <p><code>id</code></p>
             <ul>
               <li class="fragment">
                 Unique instance of modal<br>
@@ -235,56 +352,295 @@
             </ul>
           </section>
           <section>
-            <h3>The <code>tabindex</code> attribute</h3>
+            <p><code>tabindex</code></p>
             <ul>
-              
+              <li class="fragment">
+                <code>tabindex="0"</code>
+                <span class="fragment regular-crossmark">✘</span>
+              </li>
+              <li class="fragment">
+                <code>tabindex="[positiveValue]"</code>
+                <span class="fragment regular-crossmark">✘</span>
+              </li>
+              <li class="fragment">
+                <code>tabindex="-1"</code>
+                <span class="fragment regular-checkmark">✔</span>
+              </li>
+            </ul>
+            <p class="fragment">
+              <small class="baseline">Aside:</small><br>
+              Control elements already focusable by default,<br>
+              oftentimes no need for <code>tabindex</code>.
+            </p>
+          </section>
+          <section>
+            <h3>Demo</h3>
+          </section>
+          <section>
+            <h3>
+              <small class="baseline">Aside:</small><br>
+              Don't just use<br>
+              browser default focus styles
+            </h3>
+            <ul>
+              <li class="fragment">May not be visible enough in certain contexts</li>
+              <li class="fragment">Do not align with your design/branding</li>
             </ul>
           </section>
           <section>
-            <h3>Focus not immediate</h3>
-            <p>Use of setTimeout()</p>
+            <h3>
+              <small class="baseline">Code Gotcha:</small><br>
+              Focus not immediate
+            </h3>
+            <p class="fragment">
+              <code>document.activeElement</code><br>
+              unable to get correct value<br>
+              immediately after <code>HTMLelement.focus()</code>.
+            </p>
+            <img
+              src="assets/images/code-update-active-element.jpg"
+              alt="updateActiveElement method definition"
+              width="520"
+              class="fragment"
+            >
+            <p class="fragment">
+              Use <code>setTimeout()</code> if needed.<br>
+              <small class="fragment">(Does feel like a dirty hack though...)</small>
+            </p>
           </section>
         </section>
 
-        <section>
-          <h2>
-            <small class="baseline">Focus Management:</small><br>
-            Ensure that keyboard focus<br>
-            remains within<br>
-            modal dialogs
-          </h2>
-        </section>
-
-        <section>
-          <h2>
-            <small class="baseline">Keyboard Accessibility:</small><br>
-            Ensure that dialogs<br>
-            can be closed<br>
-            via the keyboard
-          </h2>
-        </section>
-
-        <section>
-          <h2>
-            <small class="baseline">Focus Management:</small><br>
-            Ensure keyboard focus<br>
-            returns properly<br>
-            from dialogs
-          </h2>
-        </section>
-
-        <!-- additional notes -->
+        <!-- focus trap -->
         <section>
           <section>
-            <h2>Additional Notes</h2>
+            <h2>
+              <small class="baseline">Focus Management:</small><br>
+              Ensure that keyboard focus<br>
+              remains within<br>
+              modal dialogs
+            </h2>
           </section>
           <section>
-            <code>aria-hidden</code>
+            <h3>TODO</h3>
+            <p>
+              Create a focus trap:<br>
+              Handle tab and shift+tab key presses<br>
+              so that the focus remains in modal.
+            </p>
           </section>
           <section>
-            <h3>MVC</h3>
-            <p>Projects built with MVC pattern</p>
+            <img
+              src="assets/images/mockup-with-modal.jpg"
+              alt="page layout with modal"
+              width="640"
+            >
           </section>
+          <section>
+            <h3>DOM references</h3>
+            <img
+              src="assets/images/code-getelementbyid.jpg"
+              alt="assign references with getElementById method"
+              width="720"
+            >
+          </section>
+          <section>
+            <h3>First & last elements references</h3>
+            <img
+              src="assets/images/code-first-last.jpg"
+              alt="assign references to first and last element"
+              width="720"
+            >
+          </section>
+          <section>
+            <h3>Handle key press</h3>
+            <img
+              src="assets/images/code-addeventlistener.jpg"
+              alt="listen to key presses"
+              width="800"
+            >
+          </section>
+          <section>
+            <h3>Early exits</h3>
+            <img
+              src="assets/images/code-early-exits.jpg"
+              alt="exit methods early if conditions are not met"
+              width="520"
+            >
+          </section>
+          <section>
+            <h3>Handle tabbing forwards</h3>
+            <img
+              src="assets/images/code-tabbing-forwards.jpg"
+              alt="tabbing forwards handler code snippet"
+              width="720"
+            >
+          </section>
+          <section>
+            <h3>Handle tabbing backwards</h3>
+            <img
+              src="assets/images/code-tabbing-backwards.jpg"
+              alt="tabbing forwards handler code snippet"
+              width="720"
+            >
+          </section>
+          <section>
+            <h3>Complete handler definition</h3>
+            <img
+              src="assets/images/code-onkeypressed.jpg"
+              alt="onKeyPressed method definition"
+              width="320"
+            >
+          </section>
+          <section>
+            <h3>Demo</h3>
+          </section>
+        </section>
+
+        <!-- esc to close -->
+        <section>
+          <section>
+            <h2>
+              <small class="baseline">Keyboard Accessibility:</small><br>
+              Ensure that dialogs<br>
+              can be closed<br>
+              via the keyboard
+            </h2>
+          </section>
+          <section>
+            <h3>TODO</h3>
+            <p>
+              Handle ESC key press to close modal<br>
+              the same way the close button would.
+            </p>
+          </section>
+          <section>
+            <h3>
+              <small class="baseline">Aside:</small><br>
+              Model/View/Controller (MVC)
+              <span class="fragment">*</span>
+            </h3>
+            <div class="fragment">
+              <small>* Remember: opiniated, not normative</small>
+            </div>
+            <ul>
+              <li class="fragment">Models hold data and states</li>
+              <li class="fragment">Views are "stupid"</li>
+              <li class="fragment">Controllers are the actors</li>
+              <li class="fragment">
+                Use models to share<br>
+                data between components
+              </li>
+            </ul>
+          </section>
+          <section>
+            <h3>Exploded View</h3>
+            <img
+              src="assets/images/exploded-view.jpg"
+              alt="updateActiveElement method definition"
+              width="720"
+            >
+          </section>
+          <section>
+            <h3>3 components</h3>
+            <ul>
+              <li class="fragment">Page</li>
+              <li class="fragment">Modal</li>
+              <li class="fragment">Veil</li>
+            </ul>
+          </section>
+          <section>
+            <h3>Veil</h3>
+            <p>Component will hold logic:</p>
+            <ul>
+              <li class="fragment">Handle requests for dismissal</li>
+              <li class="fragment">Listen to clicks</li>
+              <li class="fragment">Listen to key presses for the ESC key</li>
+            </ul>
+          </section>
+          <section>
+            <h3>Controller handles key press</h3>
+            <code>Veil.onKeyPressed()</code>
+            <img
+              src="assets/images/code-esc-handler.jpg"
+              alt="veil onKeyPressed method definition"
+              width="480"
+            >
+          </section>
+          <section>
+            <h3>Model dispatches change of state</h3>
+            <code>VeilModel.requestDismissal()</code>
+            <img
+              src="assets/images/code-requestdismissal.jpg"
+              alt="VeilModel requestDismissal method definition"
+              width="480"
+            >
+          </section>
+          <section>
+            <h3>
+              Other components<br>
+              listen to state change
+            </h3>
+            <ul>
+              <li class="fragment">Veil hides overlay</li>
+              <li class="fragment">Modal hides modal</li>
+              <li class="fragment">
+                Page sets focus on element<br>
+                that requested modal
+              </li>
+            </ul>
+          </section>
+        </section>
+
+        <!-- return focus-->
+        <section>
+          <section>
+            <h2>
+              <small class="baseline">Focus Management:</small><br>
+              Ensure keyboard focus<br>
+              returns properly<br>
+              from dialogs
+            </h2>
+          </section>
+          <section>
+            <h3>TODO</h3>
+            <p>
+              Set focus to element<br>
+              that requested modal display<br>
+              once modal is closed.
+            </p>
+          </section>
+          <section>
+            <h3>
+              Assign unique <code>id</code><br>
+              to appropriate element
+            </h3>
+            <img
+              src="assets/images/code-content.jpg"
+              alt="content element HTML code"
+              width="520"
+            >
+          </section>
+          <section>
+            <h3>Save reference of clicked element</h3>
+            <img
+              src="assets/images/code-save-clicked-element.jpg"
+              alt="click handler code saving reference of clicked element"
+              width="720"
+            >
+          </section>
+          <section>
+            <h3>Set focus back</h3>
+            <img
+              src="assets/images/code-ondismissalrequested.jpg"
+              alt="code to set focus back to clicked element"
+              width="720"
+            >
+          </section>
+        </section>
+
+        <!-- demo -->
+        <section>
+          <h2>Final Demo</h2>
         </section>
 
         <!-- about me -->
@@ -359,6 +715,7 @@
               <a href="https://github.com/jansensan/a11y-simulated-dialog-angular">
                 github.com/jansensan/a11y-simulated-dialog-angular
               </a>
+              🐞
             </li>
             <li>
               <a href="https://github.com/jansensan/a11y-simulated-dialog-vanilla-js">
@@ -384,37 +741,42 @@
             </li>
             <li>
               <a href="https://allyjs.io/tutorials/accessible-dialog.html">
-                ally.js - Accessible dialog tutorial
+                ally.js &ndash; Accessible dialog tutorial
+              </a>
+            </li>
+            <li>
+              <a href="http://adrianroselli.com/2017/02/avoid-default-browser-focus-styles.html">
+                Avoid Default Browser Focus Styles
+              </a>
+            </li>
+            <li>
+              <a href="https://www.marcozehe.de/2016/11/23/javascript-not-enemy-accessibility/">
+                JavaScript is not the enemy of accessibility
+              </a>
+            </li>
+            <li>
+              <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques">
+                MDN &ndash; Using ARIA
               </a>
             </li>
             <li>
               <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_dialog_role">
-                MDN - Using the dialog role
+                MDN &ndash; Using the dialog role
               </a>
             </li>
             <li>
               <a href="https://www.udacity.com/course/web-accessibility--ud891">
-                Udacity - Web Accessibility by Google
+                Udacity &ndash; Web Accessibility by Google
               </a>
             </li>
             <li>
               <a href="https://www.webaccessibility.com/best_practices.php?technology_platform_id=47">
-                Web Accessibility - Dialogs Best Practices
+                Web Accessibility &ndash; Dialogs Best Practices
               </a>
             </li>
             <li>
-              <a href="https://www.w3.org/TR/wai-aria/states_and_properties#aria-hidden">
-                W3C - <code>aria-hidden</code>
-              </a>
-            </li>
-            <li>
-              <a href="https://www.w3.org/TR/wai-aria/states_and_properties#aria-label">
-                W3C - <code>aria-label</code>
-              </a>
-            </li>
-            <li>
-              <a href="https://www.w3.org/TR/wai-aria/states_and_properties#aria-labelledby">
-                W3C - <code>aria-labelledby</code>
+              <a href="https://www.w3.org/TR/wai-aria/states_and_properties">
+                W3C &ndash; Supported States and Properties
               </a>
             </li>
           </ul>

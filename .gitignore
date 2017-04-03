@@ -6,4 +6,5 @@
 
 ### PROJECT DIRECTORIES AND FILES ###
 *.log
+*.psd
 /node_modules
